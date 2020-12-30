@@ -1,5 +1,8 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    class="dark:bg-gray-800"
+  >
     <div
       id="nav"
       class="p-4 font-bold"
