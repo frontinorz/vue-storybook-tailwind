@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import './assets/tailwind.css'
 
+import '@/utils/vee-validate.js';
+
 Vue.config.productionTip = false
 
 new Vue({
