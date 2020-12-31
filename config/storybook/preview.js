@@ -1,6 +1,7 @@
 import { themes } from '@storybook/theming';
 
 import '../../src/assets/tailwind.css'
+import '../../src/scss/base/base.scss'
 
 
 export const parameters = {
@@ -10,4 +11,7 @@ export const parameters = {
   docs: {
     theme: themes.dark,
   },
+  canvas: {
+    theme: themes.light,
+  }
 }
