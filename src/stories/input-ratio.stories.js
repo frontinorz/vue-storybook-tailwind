@@ -10,10 +10,10 @@ const Template = (args, { argTypes }) => ({
   template: '<InputRatio v-bind="$props" />'
 })
 
-export const Ratio = Template.bind({})
+export const Radio = Template.bind({})
 
-Ratio.args = {
-  label: 'This is a ratio',
-  id: 'ratio 1',
-  name: 'ratio'
+Radio.args = {
+  label: 'This is a radio',
+  id: 'radio 1',
+  name: 'radio'
 }

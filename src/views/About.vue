@@ -1,6 +1,9 @@
 <template>
   <div class="text-white bg-blue-500 text-lg p-5">
-    <h1>This is an about page</h1>
+    <h1>
+      This is an about page
+      <font-awesome-icon icon="shopping-cart" />
+    </h1>
     <InputText
       v-model="value"
       v-bind="input"
