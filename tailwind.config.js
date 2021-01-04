@@ -11,6 +11,12 @@ module.exports = {
   theme: {
     extend: {}
   },
-  variants: {},
+  variants: {
+    extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+      outline: ['checked'],
+    }
+  },
   plugins: []
 }

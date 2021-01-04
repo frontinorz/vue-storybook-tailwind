@@ -2,7 +2,7 @@ import InputText from '../components/form/InputText'
 import InputTextValidate from '../components/form/vee-validate/InputText'
 
 export default {
-  title: 'components/Form'
+  title: 'components/Form/Input'
 }
 
 const Template = (args, { argTypes }) => ({
@@ -17,6 +17,14 @@ Text.args = {
   label: '帳號',
   placeholder: '請輸入帳號',
   id: 'account'
+}
+
+export const TextInvalid = Template.bind({})
+TextInvalid.args = {
+  label: '帳號',
+  placeholder: '請輸入帳號',
+  id: 'account',
+  errors: ['Error message 1', 'Error message 2']
 }
 
 const TemplateValidate = (args, { argTypes }) => ({
