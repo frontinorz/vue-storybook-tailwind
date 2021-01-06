@@ -13,9 +13,10 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['checked'],
+      backgroundColor: ['checked', 'disabled'],
       borderColor: ['checked'],
       outline: ['checked'],
+      cursor: ['disabled']
     }
   },
   plugins: []
