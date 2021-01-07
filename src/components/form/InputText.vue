@@ -2,7 +2,7 @@
   <div>
     <label
       :for="id"
-      class="mr-2 text-gray-700"
+      class="mr-2 text-gray-500"
     >{{ label }}</label>
     <input
       type="text"
@@ -10,7 +10,7 @@
       :id="id"
       :placeholder="placeholder"
       @input="inputHandler"
-      class="px-2 py-1 bg-gray-200 text-gray-900 rounded focus:bg-gray-300 outline-none transition-colors"
+      class="px-2 py-1 bg-gray-100 text-gray-900 rounded transition-colors focus:bg-gray-200 outline-none"
       :class="{'error': errors.length}"
     >
     <ul
