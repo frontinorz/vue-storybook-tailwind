@@ -35,6 +35,11 @@
       v-model="modelValue"
       class="mt-4"
     />
+    <Select
+      v-model="selectModel"
+      :label="'Select'"
+      :items="selectList"
+    />
   </div>
 </template>
 
@@ -43,8 +48,16 @@ import InputText from '@/components/form/InputText';
 import ValidateInputText from '@/components/form/vee-validate/InputText';
 import InputRadio from '@/components/form/InputRadio';
 import InputRadioGroup from '@/components/form/InputRadioGroup';
+import Select from '@/components/form/Select';
 
 export default {
+  components: {
+    InputText,
+    ValidateInputText,
+    InputRadio,
+    InputRadioGroup,
+    Select,
+  },
   data() {
     return {
       value: '',
@@ -83,13 +96,9 @@ export default {
           },
         ],
       },
+      selectModel: 'option 1',
+      selectList: ['select', 'option 1', 'option 2'],
     };
-  },
-  components: {
-    InputText,
-    ValidateInputText,
-    InputRadio,
-    InputRadioGroup,
   },
   methods: {
     focusHandler() {
