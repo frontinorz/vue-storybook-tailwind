@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import InputRadio from '../components/form/InputRadio'
 
 export default {
-  title: 'components/Form/Radio',
+  title: 'Form/Radio',
   argTypes: {
     onSelect: { action: 'changeHandler' }
   }
@@ -14,28 +14,36 @@ const Template = (args, { argTypes }) => ({
   template: '<InputRadio v-bind="$props" @changeHandler="onSelect"/>'
 })
 
-export const Radio = Template.bind({})
+export const Basic = Template.bind({})
 
-Radio.args = {
+Basic.args = {
   label: 'This is a radio',
   name: 'radio',
   value: 'radio1'
 }
 
-// const GroupTemplate = (args, { argTypes }) => ({
-//   components: { InputRadio },
-//   props: Object.keys(argTypes),
-//   template: `
-//   <div>
-//     <InputRadio v-for="n in 5" 
-//     :key="n" 
-//     :label="'radio' + n"
-//     :value="n"
-//     :name="'radio'"
-//     :disabled="n == 5"
-//     @changeHandler="onSelect"/>
-//   </div>`
-// })
+export const Checked = Template.bind({})
 
-// export const Group = GroupTemplate.bind({})
+Checked.args = {
+  label: 'This is a radio',
+  value: 'selected',
+  model: 'selected'
+}
 
+export const Disabled = Template.bind({})
+
+Disabled.args = {
+  label: 'This is a radio',
+  value: 'radio disabled',
+  disabled: true
+}
+
+// https://vuetifyjs.com/en/components/selects/#custom-text-and-value
+
+// https://vuematerial.io/components/select
+
+// https://github.com/vuematerial/vue-material/blob/dev/src/components/MdField/MdSelect/MdSelect.vue
+
+// https://rogden.github.io/tailwind-config-viewer/#Shadows
+
+// https://next--storybookjs.netlify.app/official-storybook/?path=/story/@storybook/design-system_forms-select--basic

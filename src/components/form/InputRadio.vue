@@ -33,6 +33,7 @@
 import vuid from '@/core/utils/Vuid';
 
 export default {
+  name: 'V-Radio',
   props: {
     label: {
       type: String,

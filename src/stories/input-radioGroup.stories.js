@@ -1,7 +1,7 @@
 import InputRadioGroup from '../components/form/InputRadioGroup'
 
 export default {
-  title: 'components/Form/Radio',
+  title: 'Form/Radio',
   argTypes: {
     onSelect: { action: 'changeHandler' }
   }
@@ -12,7 +12,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      model: 1
+      model: 2
     }
   },
   template: `

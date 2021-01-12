@@ -2,7 +2,7 @@ import Button from '../components/button/Button'
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'components/Button',
+  title: 'Basic/Button',
   argTypes: {
     onClick: { action: 'clickHandler' },
     status: {
