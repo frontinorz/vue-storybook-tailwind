@@ -8,8 +8,11 @@ export default {
     status: {
       control: {
         type: 'select',
-        options: ['primary', 'error', 'disabled']
-      }
+        options: ['primary', 'error']
+      },
+    },
+    disabled: {
+      type: 'boolean'
     }
   }
 }
@@ -44,5 +47,5 @@ export const Disabled = Template.bind({})
 
 Disabled.args = {
   title: 'Disabled',
-  status: 'disabled'
+  disabled: true
 }
