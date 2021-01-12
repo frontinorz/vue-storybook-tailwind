@@ -1,35 +1,39 @@
 <template>
-  <div>
+  <div :class="alingClasses">
     <label
       :for="id"
-      class="mr-2 text-gray-500"
+      class="py-1 mr-2 text-sm text-gray-500"
     >{{ label }}</label>
-    <input
-      type="text"
-      :name="id"
-      :id="id"
-      :placeholder="placeholder"
-      @input="inputHandler"
-      class="px-2 py-1 bg-gray-100 text-gray-900 rounded transition-colors focus:bg-gray-200 outline-none"
-      :class="{'error': errors.length}"
-    >
-    <ul
-      v-if="errors"
-      class="text-red-500 text-sm"
-    >
-      <li
-        v-for="error in errors"
-        :key="error"
-      > {{ error }} </li>
-    </ul>
+    <div>
+      <input
+        type="text"
+        :name="id"
+        :id="id"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        @input="inputHandler"
+        class="px-2 py-1 text-base text-gray-800 rounded border border-transparent 
+        transition-colors focus:outline-none"
+        :class="inputClasses"
+      >
+      <transition name="fade-down">
+        <ul
+          v-if="errors.length"
+          class="text-red-500 text-sm mt-1"
+        >
+          <li
+            v-for="error in errors"
+            :key="error"
+          > {{ error }} </li>
+        </ul>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
-/* 
-  Vee-validate 是否要納在 component 裡面?
-  或是要再建一個專門做驗證的 component ?
-*/
+import vuid from '@/core/utils/Vuid';
+
 export default {
   name: 'PureInputText',
   props: {
@@ -41,12 +45,22 @@ export default {
     },
     id: {
       type: String,
-      required: true,
+      default: () => 'v-text-' + vuid(),
     },
     errors: {
       type: Array,
       required: false,
       default: () => [],
+    },
+    horizontal: {
+      type: Boolean,
+    },
+    vertical: {
+      type: Boolean,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -57,11 +71,20 @@ export default {
       this.$emit('input', e.target.value);
     },
   },
+  computed: {
+    inputClasses() {
+      return {
+        'bg-gray-200 focus:bg-gray-300': !this.errors.length,
+        'bg-red-200 focus:bg-gray-300 border-red-400': this.errors.length,
+        'bg-gray-400': this.disabled,
+      };
+    },
+    alingClasses() {
+      return {
+        'flex items-start': this.horizontal,
+        'flex flex-row': this.vertical,
+      };
+    },
+  },
 };
 </script>
-
-<style lang="scss" scoped>
-.error {
-  @apply bg-red-200 #{!important};
-}
-</style>
