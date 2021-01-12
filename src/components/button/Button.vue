@@ -15,7 +15,7 @@
     :disabled="status == 'disabled'"
     @click="$emit('clickHandler')"
   >
-
+    <slot />
     {{ title }}
   </button>
 </template>

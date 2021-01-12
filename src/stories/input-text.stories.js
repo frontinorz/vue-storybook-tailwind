@@ -18,6 +18,13 @@ Text.args = {
   id: 'account'
 }
 
+export const Horizontal = Template.bind({})
+
+Horizontal.args = {
+  label: '帳號',
+  horizontal: true
+}
+
 const TemplateDisabled = (args, { argTypes }) => ({
   components: { InputText },
   props: Object.keys(argTypes),
