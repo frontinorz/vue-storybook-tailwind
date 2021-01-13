@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-1 last:mb-0">
+  <div>
     <label
       :for="id"
       class="flex items-center"
@@ -13,16 +13,19 @@
         :disabled="disabled"
         :checked="isChecked"
         @change="changeHandler"
-        class="appearance-none w-4 h-4 m-0 border 
-        border-gray-400 
+        class="w-4 h-4 m-0 
+        border border-gray-400 
+        rounded-full 
+        appearance-none
+        cursor-pointer
         checked:bg-blue-400 
         checked:border-blue-400
-        disabled:border-gray-300
-        rounded-full 
+        disabled:border-gray-300 
+        disabled:cursor-default
         focus:outline-none transition-colors
         "
       >
-      <span class="text-base ml-2">
+      <span class="text-base ml-1">
         {{ label }}
       </span>
     </label>

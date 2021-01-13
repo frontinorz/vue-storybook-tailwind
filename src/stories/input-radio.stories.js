@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import InputRadio from '../components/form/InputRadio'
+import InputRadioGroup from '../components/form/InputRadioGroup'
 
 export default {
   title: 'Form/Radio',
@@ -38,12 +39,54 @@ Disabled.args = {
   disabled: true
 }
 
-// https://vuetifyjs.com/en/components/selects/#custom-text-and-value
+const TemplateGroup = (args, { argTypes }) => ({
+  components: { InputRadioGroup },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      model: 2
+    }
+  },
+  template: `
+    <InputRadioGroup
+      v-bind="$props"
+      :radioList="radioList.data"
+      @changeHandeler="onSelect"
+      v-model="model"
+    />
+  `
+})
 
-// https://vuematerial.io/components/select
+const radioList = {
+  name: 'radio',
+  data: [
+    {
+      label: 'Radio 1',
+      value: 1
+    },
+    {
+      label: 'Radio 2',
+      value: 2
+    },
+    {
+      label: 'Radio 3',
+      value: 3
+    },
+    {
+      label: 'Radio 4',
+      value: 4,
+      disabled: true
+    }
+  ]
+}
 
-// https://github.com/vuematerial/vue-material/blob/dev/src/components/MdField/MdSelect/MdSelect.vue
+export const Group = TemplateGroup.bind({})
+Group.args = {
+  radioList: radioList,
+}
 
-// https://rogden.github.io/tailwind-config-viewer/#Shadows
-
-// https://next--storybookjs.netlify.app/official-storybook/?path=/story/@storybook/design-system_forms-select--basic
+export const GroupAlignRow = TemplateGroup.bind({})
+GroupAlignRow.args = {
+  radioList: radioList,
+  row: true
+}
