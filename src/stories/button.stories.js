@@ -32,7 +32,7 @@ Default.args = {
 export const Primary = Template.bind({})
 
 Primary.args = {
-  title: 'Primary',
+  title: 123456,
   status: 'primary'
 }
 
@@ -43,9 +43,15 @@ Error.args = {
   status: 'error'
 }
 
-export const Disabled = Template.bind({})
+// export const Error = (args, { argTypes }) => ({
+//   components: { Button },
+//   props: Object.keys(argTypes),
+//   template: '<Button :status="error" @clickHandler="onClick"> Error </Button>'
+// })
 
-Disabled.args = {
-  title: 'Disabled',
-  disabled: true
-}
+
+export const Disabled = (args, { argTypes }) => ({
+  components: { Button },
+  props: Object.keys(argTypes),
+  template: '<Button disabled @clickHandler="onClick"> Disabled </Button>'
+})

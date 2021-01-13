@@ -2,20 +2,13 @@
   <button
     type="button"
     class="py-1 px-3 
-    text-gray-500 font-bold 
+    font-bold 
     rounded 
     transition-colors 
-    hover:bg-gray-200 
-    focus:outline-none 
-    disabled:text-gray-200 
-    disabled:bg-transparent 
+    hover:bg-opacity-50
+    focus:outline-none  
     disabled:cursor-default"
-    :class="{
-      'text-blue-500  hover:bg-blue-100' : status == 'primary' && !disabled,
-      'text-red-500 hover:bg-red-100' : status == 'error' && !disabled,
-      'text-blue-300' : status == 'primary' && disabled,
-      'text-red-300' : status == 'error' && disabled
-    }"
+    :class="classes"
     :disabled="disabled"
     @click="$emit('clickHandler')"
   >
@@ -34,6 +27,22 @@ export default {
       type: String,
     },
     disabled: Boolean,
+  },
+  computed: {
+    classes() {
+      return {
+        'text-gray-500 hover:bg-gray-200 ':
+          this.status != 'primary' && this.status != 'error' && !this.disabled,
+        'text-blue-500 hover:bg-blue-100':
+          this.status == 'primary' && !this.disabled,
+        'text-red-500 hover:bg-red-100':
+          this.status == 'error' && !this.disabled,
+        'text-gray-300':
+          this.status != 'primary' && this.status != 'error' && this.disabled,
+        'text-blue-300': this.status == 'primary' && this.disabled,
+        'text-red-300': this.status == 'error' && this.disabled,
+      };
+    },
   },
 };
 </script>
